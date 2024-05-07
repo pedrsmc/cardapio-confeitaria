@@ -162,7 +162,7 @@ checkoutBtn.addEventListener('click', function () {
 function checkRestaurantOpen() {
     const date = new Date()
 
-    if (date.getHours < 9 || date.getHours > 17) {
+    if (date.getHours() < 9 || date.getHours() > 17) {
         alert("Desculpe, o restaurante não está aberto este horário.")
     } else {
         alert("Pedido enviado a confeitaria. Obrigado!")
