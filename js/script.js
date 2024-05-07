@@ -167,4 +167,14 @@ function checkRestaurantOpen() {
     } else {
         alert("Pedido enviado a confeitaria. Obrigado!")
     }
+
+    cleanAll()
+}
+
+function cleanAll() {
+    while(cart.length != 0) {
+        cart.pop();
+    }
+
+    updateCartModal()
 }
