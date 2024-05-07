@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Confeitaria da Joana - A melhor confeitaria do mercado!</title>
+
+    <link rel="stylesheet" href="./styles/output.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="modal" class="p-10 w-full h-full bg-black/60 fixed z-40 justify-center items-center hidden">
+
+        <div class="min-w-[90%] md:min-w-[600px] bg-white rounded-lg p-7 cursor-default">
+            <h1 class="font-bold text-xl text-center mb-5">Meu carrinho</h1>
+
+            <div id="cart-items" class="flex flex-col gap-5 text-sm mb-5 max-h-[400px]">
+            </div>
+
+            <p class="font-bold text-sm">Total: <span id="total-price">0.00</span></p>
+
+            <p class="font-bold text-sm mt-5 mb-2">Endereço de entrega: </p>
+
+            <input placeholder="Digite aqui seu endereço completo..." type="text" id="address"
+                class="w-full rounded bg-transparent border-2 border-zinc-400 p-1 text-sm outline-none my-1">
+            <div id="warning" class="justify-center items-center mt-2 hidden">
+                <span class="text-red-700 text-sm text-center">Informe seu endereço para finalizar a compra!</span>
+            </div>
+
+            <div class="flex justify-between mt-5 text-sm">
+                <button id="close-btn" class="font-bold p-2">Fechar</button>
+                <button class="p-2 bg-green-700 rounded-sm text-white shadow-lg" id="checkout-btn">Finalizar compra</button>
+            </div>
+        </div>
+    </div>
+
+    <header class="w-full h-[320px] bg-home bg-cover py-5">
+        <div class="w-full h-full flex flex-col justify-start items-center gap-2">
+            <img src="assets/logo conf.jpg" alt="Logo Confeitaria"
+                class="w-36 h-36 rounded-full shadow-lg hover:scale-110 duration-200" />
+
+            <h1 class="text-4xl text-zinc-200 cursor-default font-dancing">Confeitaria da Joana</h1>
+
+            <span class="text-zinc-200 cursor-default">
+                Rua das Rosas, 123
+                Bairro da Primavera - Salvador
+            </span>
+
+            <div class="mt-4 shadow-lg">
+                <span class="bg-pink-700 px-2 py-2 font-bold rounded-lg text-zinc-200 cursor-default" id="date-span">Seg
+                    à Sex - 9:00 às 17:00</span>
+            </div>
+        </div>
+    </header>
+
+    <h2 class="text-3xl font-bold cursor-default text-center mt-9">Nosso cardápio &#128523; &#129473</h2>
+
+    <div id="menu">
+
+        <main class="py-10 px-5 md:px-1 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 mx-auto max-w-7xl mb-16 cursor-default">
+
+            <div class="flex gap-2 py-2 px-4 rounded-lg justify-center items-center">
+
+                <img src="assets/bolo-confeitado.jpg" alt="Bolo"
+                    class="w-28 h-28 rounded-md hover:rotate-3 duration-200" />
+
+                <div>
+                    <p class="font-bold">Bolo Confeitado</p>
+
+                    <p class="text-sm">Prepare-se para uma explosão de sabor e beleza com nosso bolo confeitado
+                        artesanal.</p>
+                    <div class="flex items-center gap-2 justify-between md:mt-5 mt-3">
+                        <p class="font-bold text-lg">R$ 35.00</p>
+
+                        <button class="bg-red-600 px-9 py-2 rounded 
+                        shadow-xl text-zinc-200 add-to-cart-btn hover:bg-red-800 duration-200"
+                            data-name="Bolo Confeitado" data-price="35.00">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-2 py-2 px-4 rounded-lg justify-center items-center">
+
+                <img src="assets/cookie.jpg" alt="Cookie" class="w-28 h-28 rounded-md hover:rotate-3 duration-200" />
+
+                <div>
+                    <p class="font-bold">Cookie de Chocolate</p>
+
+                    <p class="text-sm">Um clássico reinventado! Nosso cookie de chocolate é macio por dentro e crocante
+                        por fora.</p>
+                    <div class="flex items-center gap-2 justify-between md:mt-5 mt-3">
+                        <p class="font-bold text-lg">R$ 7.00</p>
+
+                        <button class="bg-red-600 px-9 py-2 rounded 
+                        shadow-xl text-zinc-200 add-to-cart-btn hover:bg-red-800 duration-200"
+                            data-name="Cookie de Chocolate" data-price="7.00">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-2 py-2 px-4 rounded-lg justify-center items-center">
+
+                <img src="assets/brigadeiro.jpg" alt="Brigadeiro"
+                    class="w-28 h-28 rounded-md hover:rotate-3 duration-200" />
+
+                <div>
+                    <p class="font-bold">Brigadeiro</p>
+
+                    <p class="text-sm">Deixe-se encantar pela doçura irresistível do nosso brigadeiro artesanal.</p>
+                    <div class="flex items-center gap-2 justify-between md:mt-7 mt-3">
+                        <p class="font-bold text-lg">R$ 5.00</p>
+
+                        <button class="bg-red-600 px-9 py-2 rounded 
+                        shadow-xl text-zinc-200 add-to-cart-btn hover:bg-red-800 duration-200" data-name="Brigadeiro"
+                            data-price="5.00">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-2 py-2 px-4 rounded-lg justify-center items-center">
+
+                <img src="assets/donuts.jpg" alt="Donuts" class="w-28 h-28 rounded-md hover:rotate-3 duration-200" />
+
+                <div>
+                    <p class="font-bold">Donut</p>
+
+                    <p class="text-sm">Delicie-se com nosso donut artesanal, uma explosão de sabor em cada mordida.</p>
+                    <div class="flex items-center gap-2 justify-between md:mt-4 mt-1">
+                        <p class="font-bold text-lg">R$ 10.00</p>
+
+                        <button class="bg-red-600 px-9 py-2 rounded 
+                        shadow-xl text-zinc-200 add-to-cart-btn hover:bg-red-800 duration-200" data-name="Donut"
+                            data-price="10.00">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <h1 class="text-3xl font-bold cursor-default text-center md:mt-0 mt-[-40px]">Bebidas ☕❤️</h1>
+
+        <main class="py-10 px-5 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 mx-auto max-w-7xl mb-16 cursor-default">
+
+            <div class="flex gap-2 py-2 px-4 rounded-lg justify-center items-center">
+
+                <img src="assets/cafe-espresso.jpg" alt="Café Espresso"
+                    class="w-28 h-28 rounded-md hover:rotate-3 duration-200" />
+
+                <div>
+                    <p class="font-bold">Café Espresso</p>
+
+                    <p class="text-sm">Um clássico italiano, nosso espresso é uma dose concentrada de café encorpado e
+                        intenso.</p>
+
+                    <div class="flex items-center gap-2 justify-between md:mt-5 mt-1">
+                        <p class="font-bold text-lg">R$ 5.00</p>
+
+                        <button class="bg-red-600 px-9 py-2 rounded 
+                        shadow-xl text-zinc-200 add-to-cart-btn hover:bg-red-800 duration-200"
+                            data-name="Café Espresso" data-price="5.00">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-2 py-2 px-4 rounded-lg justify-center items-center">
+
+                <img src="assets/capuccino.jpg" alt="Capuccino"
+                    class="w-28 h-28 rounded-md hover:rotate-3 duration-200" />
+
+                <div>
+                    <p class="font-bold">Capuccino</p>
+
+                    <p class="text-sm">Uma combinação perfeita de espresso encorpado, leite vaporizado e uma camada de
+                        espuma cremosa.</p>
+
+                    <div class="flex items-center gap-2 justify-between md:mt-5 mt-1">
+                        <p class="font-bold text-lg">R$ 7.00</p>
+
+                        <button class="bg-red-600 px-9 py-2 rounded 
+                        shadow-xl text-zinc-200 add-to-cart-btn hover:bg-red-800 duration-200" data-name="Capuccino"
+                            data-price="7.00">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-2 py-2 px-4 rounded-lg justify-center items-center">
+                
+                <img src="assets/cafe-latte.jpg" alt="Café Latte"
+                    class="w-28 h-28 rounded-md hover:rotate-3 duration-200" />
+
+                <div>
+                    <p class="font-bold">Café Latte</p>
+
+                    <p class="text-sm">O latte é uma indulgência cremosa, perfeita para aqueles que apreciam um café
+                        suave e reconfortante.</p>
+                    <div class="flex items-center gap-2 justify-between md:mt-7 mt-1">
+                        <p class="font-bold text-lg">R$ 9.00</p>
+
+                        <button class="bg-red-600 px-9 py-2 rounded 
+                        shadow-xl text-zinc-200 add-to-cart-btn hover:bg-red-800 duration-200" data-name="Café Latte"
+                            data-price="9.00">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-2 py-2 px-4 rounded-lg justify-center items-center">
+                <img src="assets/chocolate-quente.png" alt="Chocolate Quente"
+                    class="w-28 h-28 rounded-md hover:rotate-3 duration-200" />
+
+                <div>
+                    <p class="font-bold">Chocolate Quente</p>
+
+                    <p class="text-sm">Chocolate quente gourmet, preparado com chocolate belga e leite cremoso.</p>
+                    <div class="flex items-center gap-2 justify-between md:mt-4 mt-6">
+                        <p class="font-bold text-lg">R$ 10.00</p>
+
+                        <button class="bg-red-600 px-9 py-2 rounded 
+                        shadow-xl text-zinc-200 add-to-cart-btn hover:bg-red-800 duration-200"
+                            data-name="Chocolate Quente" data-price="6.00">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer
+        class="w-full h-[65px] bg-green-700 p-5 flex fixed bottom-0 z-40 justify-center items-center shadow-footer text-white">
+        <button class="flex gap-2" id="show-cart-btn">
+            <i class="fa-solid fa-bag-shopping text-2xl"></i>
+            <p>Meu carrinho ( <span id="item-counter">0</span> )</p>
+        </button>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
