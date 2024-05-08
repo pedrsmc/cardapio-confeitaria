@@ -164,9 +164,9 @@ function checkRestaurantOpen() {
 
     if (date.getHours() < 9 || date.getHours() > 17) {
         alert("Desculpe, o restaurante não está aberto este horário.")
-        cleanAll()
     } else {
         alert("Pedido enviado a confeitaria. Obrigado!")
+        cleanAll()
     }
 
 }
