@@ -39,12 +39,12 @@ function scrollBar() {
         cartItems.classList.add("overflow-x-hidden")
         cartItems.classList.add("overflow-y-scroll")
         cartItems.classList.add("pr-2")
-        cartItems.classList.add("mad:pr-7")
+        cartItems.classList.add("md:pr-7")
     } else {
         cartItems.classList.remove("overflow-x-hidden")
         cartItems.classList.remove("overflow-y-scroll")
         cartItems.classList.remove("pr-2")
-        cartItems.classList.remove("mad:pr-7")
+        cartItems.classList.remove("md:pr-7")
     }
 }
 
