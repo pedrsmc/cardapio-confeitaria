@@ -118,12 +118,10 @@ cartItems.addEventListener('click', function (event) {
 })
 
 function removeFromCart(itemName) {
-    const index = cart.findIndex(item => item.name === itemName);
-
-    console.log(cart[index])
+    const index = cart.findIndex(item => item.name === itemName)
 
     if (index !== -1) {
-        const item = cart[index];
+        const item = cart[index]
 
         if (item.quantity > 1) {
             item.quantity -= 1
